@@ -108,7 +108,8 @@ class ListOfStates
       int random_number = random.nextInt(25);
 
       // Check to see if that Tile is "Off", and if so turn it on
-      if (states[random_number] == false)
+      // Also check to see that the same tile is not chosen
+      if (states[random_number] == false && index != random_number)
       {
         states[random_number] = true;
         changed = false;

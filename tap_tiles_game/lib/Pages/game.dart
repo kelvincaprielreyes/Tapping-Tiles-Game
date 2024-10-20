@@ -1,6 +1,6 @@
 // The main page of the game, with score and timer
 import 'package:flutter/material.dart';
-import "tiles.dart";
+import "../Game Logic/tiles.dart";
 
 class Game extends StatefulWidget {
   Game({super.key});
