@@ -26,8 +26,8 @@ class OneTile extends StatelessWidget {
 }
 
 // The Grid of Tiles
-class Grid extends StatelessWidget {
-  Grid({super.key, required this.pressed, required this.states});
+class GameGrid extends StatelessWidget {
+  GameGrid({super.key, required this.pressed, required this.states});
   ListOfStates states;
   Function(bool, int) pressed;
 
@@ -63,10 +63,10 @@ class ListOfStates
   List<bool> states;
 
   // Default Constructor
-  ListOfStates() : states = randomStates();
+  ListOfStates() : states = _initialize();
 
-  // Generate Random List
-  static List<bool> randomStates()
+  // Constructor Function
+  static List<bool> _initialize()
   {
     // Make temp list with 10 true values
     List<bool> temp = List.filled(10, true, growable: true);
@@ -79,6 +79,20 @@ class ListOfStates
 
     return temp;
     
+  }
+
+  void randomStates()
+  {
+    // Make temp list with 10 true values
+    List<bool> temp = List.filled(10, true, growable: true);
+
+    // Add 15 false values
+    temp.addAll(List.filled(15, false));
+
+    // Shuffle the list
+    temp.shuffle(Random());
+
+    states = temp;
   }
 
   // Access Operator 
@@ -116,6 +130,13 @@ class ListOfStates
       }
 
     }
+  }
+
+  // Reduce the amount of valid Tiles on Screen by 1
+  void reduce(int index)
+  {
+    // Change the tile that was chosen
+    states[index] = !states[index];
   }
 }
 
