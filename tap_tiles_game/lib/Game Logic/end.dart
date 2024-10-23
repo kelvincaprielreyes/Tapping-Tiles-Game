@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class GameEnd extends StatelessWidget {
-  GameEnd({super.key, required this.tileCount, required this.score, required this.highScore, required this.newGame});
+  GameEnd({super.key, required this.tileCount, required this.score, required this.newGame});
   int tileCount;
   int score;
-  int highScore;
   Function () newGame;
 
   @override
