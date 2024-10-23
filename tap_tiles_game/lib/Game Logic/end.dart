@@ -13,18 +13,63 @@ class GameEnd extends StatelessWidget {
       child: Container(
         width: 500,
         height: 500,
+        color: const Color.fromARGB(255, 73, 163, 68),
         child: Card(
+          shadowColor: Colors.transparent,
+          color: const Color.fromARGB(255, 73, 163, 68),
           child: Column(
             children: [
-              const Text("GAME OVER"),
-              Text("Score: $score"),
-              Text("Number of Tiles Tapped: $tileCount"),
-              ElevatedButton(
-                onPressed: ()
-                {
-                  newGame();
-                }, 
-                child: const Text("Return to Start"))
+              const Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text("GAME OVER",
+                style: TextStyle(
+                  fontSize: 75,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text("Score: $score", 
+                style: const TextStyle(
+                  fontSize: 25,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text("Number of Tiles Tapped: $tileCount",
+                style: const TextStyle(
+                  fontSize: 25,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(5, 150, 5, 0),
+                child: SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 107, 85, 208),
+                    ),
+                    onPressed: ()
+                    {
+                      newGame();
+                    }, 
+                    child: const Text("Play Again?",
+                      style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                ),)),
+                ),
+              )
 
             ],
           ),
